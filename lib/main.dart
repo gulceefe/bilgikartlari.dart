@@ -69,6 +69,11 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             ),
           ),
           ),
+            Row(
+
+
+
+            ),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6.0),
