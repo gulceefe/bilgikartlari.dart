@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'constants.dart';
+
 void main () => runApp(BilgiTesti());
 
 class BilgiTesti extends StatelessWidget {
@@ -28,6 +30,11 @@ class SoruSayfasi extends StatefulWidget {
   }
 
 class _SoruSayfasiState extends State<SoruSayfasi> {
+
+  List <Widget> secimler =
+  [];
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -60,7 +67,13 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             padding: EdgeInsets.symmetric(horizontal: 6.0),
             child: ElevatedButton(
 
-                onPressed: (){},
+                onPressed: (){
+                  setState(() {
+                    secimler.add(kYanlisIconu);
+                  });
+
+
+                },
                 child: Icon(
                   Icons.thumb_down,
                   size: 30.0,
@@ -70,19 +83,31 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
           ),
           ),
             Row(
-
-
-
+              children: secimler,
             ),
             Expanded(
+              flex:1,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6.0),
-                child: ElevatedButton(
-                    onPressed: (){},
-                  child: Icon(Icons.thumb_up,
-                  size: 30.0,
-                    color: Colors.white,
-                  ),
+                child: Row(
+                  children: [
+                    Expanded( child:Padding(padding: EdgeInsets.symmetric(horizontal: 6),
+
+                      child: ElevatedButton(
+
+                        child: Icon(Icons.thumb_up,
+                          size: 30.0,
+                          color: Colors.white,
+                        ),
+                        onPressed: (){
+                          setState(() {
+                            secimler.add(kDogruIconu);
+                          });
+                        },
+                      ),
+                    ),
+                    ),
+                  ],
                 ),
             ),
             ),
@@ -92,3 +117,4 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
     );
   }
 }
+
