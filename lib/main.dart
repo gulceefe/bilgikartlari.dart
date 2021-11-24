@@ -31,17 +31,18 @@ class SoruSayfasi extends StatefulWidget {
 class _SoruSayfasiState extends State<SoruSayfasi> {
 
   List <Widget> secimler = [];
-  List <String> sorular = [
-    'Titanic gelmiş geçmiş en büyük gemidir.',
-    'Dünyadaki tavuk sayısı insan sayısından fazladır.',
-    'Kelebeklerin ömrü bir gündür.',
-    'Dünya düzdür.',
-    'Kaju fıstığı aslında bir meyvenin sapıdır.',
-    'Fatih Sultan Mehmet hiç patates yememiştir.',
-    'Fransızlar 80 demek için, 4 - 20 der.'
-  ];
   List <bool> yanitlar = [false, true, false,false, true, true, true];
   int soruSirasi = 0;
+
+  List <Soru> soruBankasi = [
+    Soru (soruMetni: 'Titanic gelmiş geçmiş en büyük gemidir.' , soruYaniti: false),
+    Soru (soruMetni:'Dünyadaki tavuk sayısı insan sayısından fazladır.' , soruYaniti: true ),
+    Soru (soruMetni:'Kelebeklerin ömrü bir gündür.' , soruYaniti: false),
+    Soru (soruMetni:'Dünya düzdür.' , soruYaniti: false ),
+    Soru (soruMetni: 'Kaju fıstığı aslında bir meyvenin sapıdır.', soruYaniti: true ),
+    Soru (soruMetni:'Fatih Sultan Mehmet hiç patates yememiştir.' , soruYaniti:true ),
+    Soru (soruMetni:'Fransızlar 80 demek için, 4 - 20 der.' , soruYaniti: true )
+  ];
 
 
   @override
@@ -58,7 +59,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            sorular[soruSirasi],
+            soruBankasi[soruSirasi].soruMetni,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
@@ -87,7 +88,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 onPressed: (){
                   setState(() {
 
-                    yanitlar[soruSirasi] == false
+                    soruBankasi[soruSirasi].soruYaniti == false
                     ?secimler.add(kDogruIconu)
                     :secimler.add(kYanlisIconu);
 
@@ -110,7 +111,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         ),
           onPressed: (){
             setState(() {
-              yanitlar[soruSirasi] == true
+              soruBankasi[soruSirasi].soruYaniti == true
               ?secimler.add(kDogruIconu)
               :secimler.add(kYanlisIconu);
               soruSirasi++;
@@ -122,5 +123,13 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         ],
     );
   }
+}
+
+class Soru{
+  String soruMetni;
+  bool soruYaniti;
+
+  Soru ({required this.soruMetni, required this.soruYaniti});
+
 }
 
