@@ -1,3 +1,5 @@
+
+import 'package:bilgi_kartlari/test_veri.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -34,16 +36,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
   List <bool> yanitlar = [false, true, false,false, true, true, true];
   int soruSirasi = 0;
 
-  List <Soru> soruBankasi = [
-    Soru (soruMetni: 'Titanic gelmiş geçmiş en büyük gemidir.' , soruYaniti: false),
-    Soru (soruMetni:'Dünyadaki tavuk sayısı insan sayısından fazladır.' , soruYaniti: true ),
-    Soru (soruMetni:'Kelebeklerin ömrü bir gündür.' , soruYaniti: false),
-    Soru (soruMetni:'Dünya düzdür.' , soruYaniti: false ),
-    Soru (soruMetni: 'Kaju fıstığı aslında bir meyvenin sapıdır.', soruYaniti: true ),
-    Soru (soruMetni:'Fatih Sultan Mehmet hiç patates yememiştir.' , soruYaniti:true ),
-    Soru (soruMetni:'Fransızlar 80 demek için, 4 - 20 der.' , soruYaniti: true )
-  ];
-
+  TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +52,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            soruBankasi[soruSirasi].soruMetni,
+            test_1.soruBankasi[soruSirasi].soruMetni,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
@@ -88,7 +81,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 onPressed: (){
                   setState(() {
 
-                    soruBankasi[soruSirasi].soruYaniti == false
+                    test_1.soruBankasi[soruSirasi].soruYaniti == false
                     ?secimler.add(kDogruIconu)
                     :secimler.add(kYanlisIconu);
 
@@ -111,7 +104,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         ),
           onPressed: (){
             setState(() {
-              soruBankasi[soruSirasi].soruYaniti == true
+              test_1.soruBankasi[soruSirasi].soruYaniti == true
               ?secimler.add(kDogruIconu)
               :secimler.add(kYanlisIconu);
               soruSirasi++;
@@ -125,11 +118,5 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
   }
 }
 
-class Soru{
-  String soruMetni;
-  bool soruYaniti;
 
-  Soru ({required this.soruMetni, required this.soruYaniti});
-
-}
 
