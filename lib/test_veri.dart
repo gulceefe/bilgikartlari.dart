@@ -23,10 +23,6 @@ class TestVeri {
     void sonrakiSoru(){
       if(_soruSirasi+1<_soruBankasi.length){
         _soruSirasi++;
-      }else{
-        print('Test Bitti');
-
       }
-
     }
 }
