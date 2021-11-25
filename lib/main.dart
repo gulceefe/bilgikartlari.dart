@@ -34,7 +34,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
 
   List <Widget> secimler = [];
   List <bool> yanitlar = [false, true, false,false, true, true, true];
-  int soruSirasi = 0;
+
 
   TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
 
@@ -52,7 +52,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            test_1.getSoruMetni(soruSirasi),
+            test_1.getSoruMetni(),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
@@ -81,11 +81,11 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 onPressed: (){
                   setState(() {
 
-                    test_1.getSoruYaniti(soruSirasi) == false
+                    test_1.getSoruYaniti() == false
                     ?secimler.add(kDogruIconu)
                     :secimler.add(kYanlisIconu);
 
-                    soruSirasi++;
+                    test_1.sonrakiSoru();
                   }); //setstate
                 },
               ),
@@ -104,10 +104,10 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         ),
           onPressed: (){
             setState(() {
-              test_1.getSoruYaniti(soruSirasi) == true
+              test_1.getSoruYaniti() == true
               ?secimler.add(kDogruIconu)
               :secimler.add(kYanlisIconu);
-              soruSirasi++;
+              test_1.sonrakiSoru();
             });
           },
         ),

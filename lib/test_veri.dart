@@ -1,6 +1,8 @@
 import 'package:bilgi_kartlari/soru.dart';
 
 class TestVeri {
+  int _soruSirasi = 0;
+
   List <Soru> _soruBankasi = [
     Soru (soruMetni: 'Titanic gelmiş geçmiş en büyük gemidir.' , soruYaniti: false),
     Soru (soruMetni:'Dünyadaki tavuk sayısı insan sayısından fazladır.' , soruYaniti: true ),
@@ -11,10 +13,20 @@ class TestVeri {
     Soru (soruMetni:'Fransızlar 80 demek için, 4 - 20 der.' , soruYaniti: true )
   ];
 
-    String getSoruMetni (int soruSirasi){ //hangisini çağıracak?Bilmek için parametresini parantez içine verdik.
-      return _soruBankasi[soruSirasi].soruMetni;
+    String getSoruMetni (){ //hangisini çağıracak?Bilmek için parametresini parantez içine verdik. ama sonra soruSirasi değişkenini de bu sayfaya getirdik, üstte var. o nedenle o parametreyi kaldırabiliriz.
+      return _soruBankasi[_soruSirasi].soruMetni;
     }
-    bool getSoruYaniti (int soruSirasi){
-      return _soruBankasi[soruSirasi].soruYaniti;
+    bool getSoruYaniti (){
+      return _soruBankasi[_soruSirasi].soruYaniti;
+    }
+
+    void sonrakiSoru(){
+      if(_soruSirasi+1<_soruBankasi.length){
+        _soruSirasi++;
+      }else{
+        print('Test Bitti');
+
+      }
+
     }
 }
