@@ -52,7 +52,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            test_1.soruBankasi[soruSirasi].soruMetni,
+            test_1.getSoruMetni(soruSirasi),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
@@ -81,7 +81,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 onPressed: (){
                   setState(() {
 
-                    test_1.soruBankasi[soruSirasi].soruYaniti == false
+                    test_1.getSoruYaniti(soruSirasi) == false
                     ?secimler.add(kDogruIconu)
                     :secimler.add(kYanlisIconu);
 
@@ -104,7 +104,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         ),
           onPressed: (){
             setState(() {
-              test_1.soruBankasi[soruSirasi].soruYaniti == true
+              test_1.getSoruYaniti(soruSirasi) == true
               ?secimler.add(kDogruIconu)
               :secimler.add(kYanlisIconu);
               soruSirasi++;
