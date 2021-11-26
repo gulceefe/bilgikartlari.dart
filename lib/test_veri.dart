@@ -20,9 +20,20 @@ class TestVeri {
       return _soruBankasi[_soruSirasi].soruYaniti;
     }
 
-    void sonrakiSoru(){
-      if(_soruSirasi+1<_soruBankasi.length){
+    void sonrakiSoru() {
+      if (_soruSirasi + 1 < _soruBankasi.length) {
         _soruSirasi++;
       }
     }
+      bool testBittiMi (){
+        if(_soruSirasi+1>=_soruBankasi.length){
+          return true;
+        }else {
+          return false;
+        }
+      }
+      void testiSifirla(){
+      _soruSirasi=0;
+      }
+
 }

@@ -34,9 +34,46 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
 
   List <Widget> secimler = [];
   List <bool> yanitlar = [false, true, false,false, true, true, true];
-
-
   TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
+  void butonFonksiyonu (secilenButon){
+    if(test_1.testBittiMi()==true){
+      test_1.testiSifirla(); //indexi sıfırla
+      secimler = []; //secimleri sıfırla
+      //alertdialog göster
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: new Text("Test Bitti!"),
+            content: new Text("Burada sonuç verilecek"),
+            actions: <Widget>[
+              // usually buttons at the bottom of the dialog
+              new TextButton(
+                child: new Text("Kapat"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+
+
+
+    } else{
+      setState(() {
+        test_1.getSoruYaniti() ==
+                secilenButon //buraya true veya false yerine secilenButon diye parametre verdik, yukarda da void parametresi olarak yazdık.
+            ? secimler.add(kDogruIconu)
+            : secimler.add(kYanlisIconu);
+
+        test_1.sonrakiSoru();
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,14 +116,8 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                   color: Colors.white,
               ),
                 onPressed: (){
-                  setState(() {
 
-                    test_1.getSoruYaniti() == false
-                    ?secimler.add(kDogruIconu)
-                    :secimler.add(kYanlisIconu);
-
-                    test_1.sonrakiSoru();
-                  }); //setstate
+                  butonFonksiyonu(false);
                 },
               ),
             ),
@@ -103,12 +134,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         color: Colors.white,
         ),
           onPressed: (){
-            setState(() {
-              test_1.getSoruYaniti() == true
-              ?secimler.add(kDogruIconu)
-              :secimler.add(kYanlisIconu);
-              test_1.sonrakiSoru();
-            });
+            butonFonksiyonu(true);
           },
         ),
       ),
