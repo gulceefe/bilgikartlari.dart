@@ -37,29 +37,31 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
   TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
   void butonFonksiyonu (secilenButon){
     if(test_1.testBittiMi()==true){
-      test_1.testiSifirla(); //indexi sıfırla
-      secimler = []; //secimleri sıfırla
-      //alertdialog göster
+
+      //alertdialog göster, aşağıda.
       showDialog(
         context: context,
         builder: (BuildContext context) {
           // return object of type Dialog
           return AlertDialog(
             title: new Text("Test Bitti!"),
-            content: new Text("Burada sonuç verilecek"),
+            //content: new Text("Burada sonuç verilecek"),
             actions: <Widget>[
               // usually buttons at the bottom of the dialog
               new TextButton(
-                child: new Text("Kapat"),
+                child: new Text("Başa Dön"),
                 onPressed: () {
                   Navigator.of(context).pop();
+                  setState(() {
+                    test_1.testiSifirla(); //indexi sıfırla
+                    secimler = []; //secimleri sıfırla
+                  });
                 },
               ),
             ],
           );
         },
       );
-
 
 
     } else{
