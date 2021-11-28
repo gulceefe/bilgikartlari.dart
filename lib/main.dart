@@ -1,6 +1,9 @@
 
+import 'dart:ui';
+
 import 'package:bilgi_kartlari/test_veri.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
 import 'constants.dart';
@@ -97,6 +100,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
+              fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
@@ -109,9 +113,12 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
     children: secimler,
     ),
         Expanded(
+
           flex:1,
             child: Padding(
-            padding: const EdgeInsets.all(5.0),
+
+            padding: const EdgeInsets.all(20.0),
+
               child: ElevatedButton(
                  //onpressed
                 child: Icon(
@@ -129,13 +136,16 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 },
 
                 ),
+
               ),
+
             ),
+
 
     Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(20.0),
         child: ElevatedButton(
 
         child: Icon(
