@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
-const Icon kDogruIconu= Icon(Icons.mood, color: Colors.yellow);
-const Icon kYanlisIconu = Icon(Icons.mood_bad, color: Colors.purple);
+const Icon kDogruIconu= Icon(Icons.check_circle_outline, color: Colors.green);
+const Icon kYanlisIconu = Icon(Icons.cancel_outlined, color: Colors.red);

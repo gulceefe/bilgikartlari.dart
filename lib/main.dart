@@ -13,9 +13,9 @@ class BilgiTesti extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         body: SafeArea(
-          child: Padding(padding: EdgeInsets.symmetric(horizontal: 10.0),
+          child: Padding(padding: EdgeInsets.symmetric(horizontal: 6.0),
             child: SoruSayfasi(),
 
           ),
@@ -33,7 +33,7 @@ class SoruSayfasi extends StatefulWidget {
 class _SoruSayfasiState extends State<SoruSayfasi> {
 
   List <Widget> secimler = [];
-  List <bool> yanitlar = [false, true, false,false, true, true, true];
+  //List <bool> yanitlar = [false, true, false,false, true, true, true];
   TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
   void butonFonksiyonu (secilenButon){
     if(test_1.testBittiMi()==true){
@@ -44,12 +44,14 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         builder: (BuildContext context) {
           // return object of type Dialog
           return AlertDialog(
-            title: new Text("Test Bitti!"),
+            title: new Text("TEBRİKS! Test Bitti!"),
             //content: new Text("Burada sonuç verilecek"),
             actions: <Widget>[
               // usually buttons at the bottom of the dialog
               new TextButton(
-                child: new Text("Başa Dön"),
+                child: new Text("Başa Dön"),style: TextButton.styleFrom(
+                backgroundColor: Colors.purple,
+              ),
                 onPressed: () {
                   Navigator.of(context).pop();
                   setState(() {
@@ -88,14 +90,14 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
       Expanded(
       flex: 4,
       child: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(6.0),
         child: Center(
           child: Text(
             test_1.getSoruMetni(),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ),
@@ -109,7 +111,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         Expanded(
           flex:1,
             child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(5.0),
               child: ElevatedButton(
                  //onpressed
                 child: Icon(
@@ -117,17 +119,23 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                   size: 30.0,
                   color: Colors.white,
               ),
+    style: ElevatedButton.styleFrom(
+    shadowColor: Colors.redAccent,
+    primary: Colors.red,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    ),
                 onPressed: (){
-
                   butonFonksiyonu(false);
                 },
+
+                ),
               ),
             ),
-        ),
+
     Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(5.0),
         child: ElevatedButton(
 
         child: Icon(
@@ -135,6 +143,11 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         size: 30.0,
         color: Colors.white,
         ),
+          style: ElevatedButton.styleFrom(
+            shadowColor: Colors.lightGreenAccent,
+            primary: Colors.green,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
           onPressed: (){
             butonFonksiyonu(true);
           },
