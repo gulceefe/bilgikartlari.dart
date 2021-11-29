@@ -5,7 +5,6 @@ import 'package:bilgi_kartlari/test_veri.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-
 import 'constants.dart';
 
 void main() => runApp(BilgiTesti());
@@ -46,6 +45,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
 
   List <Widget> secimler = [];
   //List <bool> yanitlar = [false, true, false,false, true, true, true];
+
   TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
   void butonFonksiyonu (secilenButon){
     if(test_1.testBittiMi()==true){
