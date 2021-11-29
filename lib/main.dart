@@ -15,8 +15,17 @@ class BilgiTesti extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+
+
       home: Scaffold(
-        backgroundColor: Colors.white,
+        appBar:AppBar(
+            title: Text('Bilgi Kartları'),
+            centerTitle: true,
+            backgroundColor: Colors.deepPurpleAccent,
+            foregroundColor: Colors.black,
+            leading: Icon(Icons.person),
+        actions: [IconButton(onPressed: (){}, icon: Icon(Icons.circle_notifications_sharp))],),
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Padding(padding: EdgeInsets.symmetric(horizontal: 6.0),
             child: SoruSayfasi(),
@@ -53,8 +62,9 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
               // usually buttons at the bottom of the dialog
               new TextButton(
                 child: new Text("Başa Dön"),style: TextButton.styleFrom(
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.white,
               ),
+
                 onPressed: () {
                   Navigator.of(context).pop();
                   setState(() {
@@ -101,7 +111,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
         ),
