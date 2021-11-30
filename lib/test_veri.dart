@@ -1,4 +1,6 @@
+import 'package:bilgi_kartlari/constants.dart';
 import 'package:bilgi_kartlari/soru.dart';
+import 'package:flutter/material.dart';
 
 
 class TestVeri {
@@ -106,6 +108,18 @@ class TestVeri {
   void testiSifirla() {
     _soruSirasi = 0;
   }
+  // void sonucuGoster(){
+  //   List <bool> sonuc = [];
+  //   List <bool> secimler = [];
+  //   for(bool kDogruIconu in secimler){
+  //     sonuc.add(kDogruIconu);
+  //   }
+  //   for(bool kYanlisIconu in secimler){
+  //     sonuc.add(kYanlisIconu);
+  //   }
+  //   //print('{Doğru Yanıt Sayınız: $kDogruIconu}; Yanlış Yanıt Sayınız $kYanlisIconu');
+  //   sonuc;
+  // }
 
 
   // class DogruYanlisYanitSayisi {

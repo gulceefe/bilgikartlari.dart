@@ -1,6 +1,4 @@
-
 import 'dart:ui';
-
 import 'package:bilgi_kartlari/test_veri.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -44,9 +42,34 @@ class SoruSayfasi extends StatefulWidget {
 class _SoruSayfasiState extends State<SoruSayfasi> {
 
   List <Widget> secimler = [];
-  //List <bool> yanitlar = [false, true, false,false, true, true, true];
+  //List <const kDogruIconu> yanitlar = [];
+  List <int> IkondanCekilenSonuclar = [];
+  TestVeri test_1 = TestVeri();
 
-  TestVeri test_1 = TestVeri(); // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
+  // burada sorular yazıyordu. onları test-veri'ye attık. buraya da bu testveri satırını yazdık.
+
+   List sonucuGoster(dogruSayiTipi , yanlisSayiTipi) {
+     List <bool> dogruList = [];
+     //   List <bool> yanlisList = [];
+     List <bool> secimler = [];
+     bool dogruSonuc;
+     //   bool yanlisSonuc;
+     int dogruSayiTipi;
+     int yanlisSayiTipi;
+     //
+     for (bool dogruSonuc in secimler) {
+       dogruList.add(dogruSonuc);
+       // dogruSayiTipi++;
+       //   }
+       //   for(bool yanlisSonuc in secimler){
+       //     yanlisList.add(yanlisSonuc);
+       //   }
+       //
+
+     }
+     return dogruList;
+   }
+
   void butonFonksiyonu (secilenButon){
     if(test_1.testBittiMi()==true){
 
@@ -56,10 +79,10 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
         builder: (BuildContext context) {
           // return object of type Dialog
           return AlertDialog(
-            title: new Text("TEBRİKS! Test Bitti!"),
-            //content: new Text("Burada sonuç verilecek"),
-            actions: <Widget>[
+            title: new Text( 'Doğru Yanıt Sayınız : '),
+           // content:
               // usually buttons at the bottom of the dialog
+            actions: <Widget>[
               new TextButton(
                 child: new Text("Başa Dön"),style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
@@ -87,6 +110,9 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             : secimler.add(kYanlisIconu);
 
         test_1.sonrakiSoru();
+       // dogruList.add('1');
+
+
       });
     }
   }
